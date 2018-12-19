@@ -8,18 +8,22 @@ if (isAdmin && isLogIn) {
 }*/
 const adminLogin = "admin";
 const adminPassword = "m4ng0h4ckz";
-let message = "";
-let userInput = prompt("Введите логин");
+let message = " ";
+/*let userPass = prompt("введите пароль");*/
 
-/*let userInput = prompt("введите пароль");*/
-if (!userInput) {
-  console.log("отмена пользователем"); /*console.log("отмена пользователем");*/
-  /*(userInput === null) */
+let userLogin = prompt("Введите логин");
+if (!userLogin) {
+  message = "пользователь нажал отмену";
+} else if (userLogin !== adminLogin) {
+  message = "досnуп запрещен неверній логин";
 } else {
-  if (userInput !== adminLogin) {
-    console.log("доступ запрещен.неверный логин");
+  let userPass = prompt("Введите пароль");
+  if (!userPass) {
+    message = "пользователь нажал отмену";
+  } else if (userPass !== adminPassword) {
+    message = "неверный пароль";
   } else {
-    prompt("введите пароль");
+    message = "добро пожаловать";
   }
 }
-/*adahttps://codepen.io/Maria_1603/pen/PXGWQL
+console.log(message);
